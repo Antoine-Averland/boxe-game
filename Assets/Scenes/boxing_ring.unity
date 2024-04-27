@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.05
   jumpForce: 4
-  Anim: {fileID: 0}
+  Anim: {fileID: 1404286415}
 --- !u!54 &1108551583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2133,7 +2133,7 @@ Transform:
   m_GameObject: {fileID: 1108551581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: 4.21, z: 18.052416}
+  m_LocalPosition: {x: -1.13, y: 4.25, z: 18.052416}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2564,6 +2564,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368583288}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1404286415 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 24f81a74877dca3428e28957075f4f52,
+    type: 3}
+  m_PrefabInstance: {fileID: 936660659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1442417242
 GameObject:
   m_ObjectHideFlags: 0
