@@ -632,7 +632,6 @@ GameObject:
   - component: {fileID: 291554011}
   - component: {fileID: 291554010}
   - component: {fileID: 291554009}
-  - component: {fileID: 291554012}
   - component: {fileID: 291554013}
   m_Layer: 0
   m_Name: Ring
@@ -706,33 +705,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1992922865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &291554012
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291554007}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &291554013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2378,7 +2350,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 24f81a74877dca3428e28957075f4f52,
         type: 3}
       propertyPath: m_Name
-      value: X Bot
+      value: BoxerModel
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 24f81a74877dca3428e28957075f4f52,
         type: 3}
@@ -2837,7 +2809,7 @@ GameObject:
   - component: {fileID: 1108551583}
   - component: {fileID: 1108551582}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Boxer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2967,8 +2939,8 @@ Transform:
   m_GameObject: {fileID: 1108551581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: 4.25, z: 18.052416}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.13, y: 5.32, z: 18.052416}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 936660660}
@@ -4075,7 +4047,6 @@ GameObject:
   - component: {fileID: 1494768323}
   - component: {fileID: 1494768322}
   - component: {fileID: 1494768321}
-  - component: {fileID: 1494768325}
   m_Layer: 0
   m_Name: ring_floor
   m_TagString: Untagged
@@ -4169,33 +4140,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1992922865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1494768325
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494768320}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1561542218
 GameObject:
   m_ObjectHideFlags: 0
