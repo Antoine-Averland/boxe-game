@@ -7,6 +7,7 @@ public class PlayerControllerV2 : MonoBehaviour
     public float movementSpeed;
     public float jumpForce;
     public Animator Anim;
+    public bool canMove;
 
     private Rigidbody playerRb;
     private bool isOnGround = true;
@@ -20,9 +21,12 @@ public class PlayerControllerV2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Punch();
-        Kick();
-        Move();
+        if (canMove)
+        {
+            Punch();
+            Kick();
+            Move();
+        }
     }
 
     public void Punch()
@@ -87,5 +91,19 @@ public class PlayerControllerV2 : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isOnGround = true;
+
+        if (collision.gameObject.CompareTag("BoxerBlueSide"))
+        {
+            Debug.Log("Collision avec le boxer adverse !");
+            // Vous pouvez ajouter ici le code pour réagir à la collision avec le boxer adverse
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BoxerBlueSide")
+        {
+            Debug.Log("Collision sur boxerblueside");
+        }
     }
 }
