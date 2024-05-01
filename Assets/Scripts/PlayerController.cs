@@ -12,7 +12,9 @@ public class PlayerControllerV2 : MonoBehaviour
     public AudioClip audioPunchR = null;
     public AudioClip audioPunchL = null;
     public AudioClip audioKick = null;
+    public AudioClip audioHit = null;
     public int healthPower = 100;
+    private int previousHealth;
 
 
 
@@ -25,6 +27,7 @@ public class PlayerControllerV2 : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         boxerAudioSource = GetComponent<AudioSource>();
+        previousHealth = healthPower;
     }
 
     // Update is called once per frame
@@ -35,6 +38,18 @@ public class PlayerControllerV2 : MonoBehaviour
             Punch();
             Kick();
             Move();
+        }
+        if (previousHealth != healthPower)
+        {
+            // Si la santé précédente est supérieure à la santé actuelle, cela signifie que le joueur a perdu des points de vie
+            if (previousHealth > healthPower)
+            {
+                // Jouer le son de perte de vie
+                boxerAudioSource.PlayOneShot(audioHit);
+            }
+
+            // Mettez à jour la santé précédente avec la santé actuelle pour la prochaine itération
+            previousHealth = healthPower;
         }
     }
 
@@ -76,28 +91,28 @@ public class PlayerControllerV2 : MonoBehaviour
 
     public void Move()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.position += new Vector3(-movementSpeed, 0, 0);
             //Anim.Play("MoveBack");
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.position += new Vector3(movementSpeed, 0, 0);
             //Anim.Play("MoveForw");
         }
 
-        // Vérifier si la touche W est enfoncée
-        if (Input.GetKey(KeyCode.W))
+        // Vérifier si la touche A est enfoncée
+        if (Input.GetKey(KeyCode.A))
         {
-            // Déplacer le personnage vers l'avant en fonction de la vitesse de déplacement
+            // Déplacer le personnage vers la gauche en fonction de la vitesse de déplacement
             transform.position += new Vector3(0, 0, movementSpeed);
         }
-        // Vérifier si la touche S est enfoncée
-        else if (Input.GetKey(KeyCode.S))
+        // Vérifier si la touche D est enfoncée
+        else if (Input.GetKey(KeyCode.D))
         {
-            // Déplacer le personnage vers l'arrière en fonction de la vitesse de déplacement
+            // Déplacer le personnage vers la droite en fonction de la vitesse de déplacement
             transform.position += new Vector3(0, 0, -movementSpeed);
         }
 
@@ -115,21 +130,26 @@ public class PlayerControllerV2 : MonoBehaviour
             if (attackSide == DamageController.AttackSide.Left)
             {
                 Anim.Play("GetHitBody1_R");
+                
             }
             else
             {
                 Anim.Play("GetHitBody1_L");
+                
             }
         } else if (attackType == DamageController.AttackType.Punch)
         {
             if (attackSide == DamageController.AttackSide.Left)
             {
                 Anim.Play("GetHitHead1_R");
+                
             } else
             {
                 Anim.Play("GetHitHead1_L");
+                
             }
         }
+        
     }
 
     // When boxer make a collision 
