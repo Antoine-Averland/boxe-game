@@ -45,12 +45,14 @@ public class PlayerControllerV2 : MonoBehaviour
             Anim.Play("Punch1_R");
             boxerAudioSource.PlayOneShot(audioPunchR);
             damageController.SetLastAttack(DamageController.AttackType.Punch);
+            damageController.SetLastAttackSide(DamageController.AttackSide.Right);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Anim.Play("Punch1_L");
             boxerAudioSource.PlayOneShot(audioPunchL);
             damageController.SetLastAttack(DamageController.AttackType.Punch);
+            damageController.SetLastAttackSide(DamageController.AttackSide.Left);
         }
     }
 
@@ -61,12 +63,14 @@ public class PlayerControllerV2 : MonoBehaviour
             Anim.Play("Kick1_R");
             boxerAudioSource.PlayOneShot(audioKick);
             damageController.SetLastAttack(DamageController.AttackType.Kick);
+            damageController.SetLastAttackSide(DamageController.AttackSide.Right);
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Anim.Play("Kick1_L");
             boxerAudioSource.PlayOneShot(audioKick);
             damageController.SetLastAttack(DamageController.AttackType.Kick);
+            damageController.SetLastAttackSide(DamageController.AttackSide.Left);
         }
     }
 
@@ -101,6 +105,30 @@ public class PlayerControllerV2 : MonoBehaviour
         {
             playerRb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+        }
+    }
+
+    public void IsHit(DamageController.AttackType attackType, DamageController.AttackSide attackSide)
+    {
+        if (attackType == DamageController.AttackType.Kick)
+        {
+            if (attackSide == DamageController.AttackSide.Left)
+            {
+                Anim.Play("GetHitBody1_R");
+            }
+            else
+            {
+                Anim.Play("GetHitBody1_L");
+            }
+        } else if (attackType == DamageController.AttackType.Punch)
+        {
+            if (attackSide == DamageController.AttackSide.Left)
+            {
+                Anim.Play("GetHitHead1_R");
+            } else
+            {
+                Anim.Play("GetHitHead1_L");
+            }
         }
     }
 

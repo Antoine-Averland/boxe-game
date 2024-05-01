@@ -1188,6 +1188,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349923592}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &369298621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -290750445479886849, guid: 24f81a74877dca3428e28957075f4f52,
+    type: 3}
+  m_PrefabInstance: {fileID: 936660659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &369298623
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369298621}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,10 +1478,12 @@ MonoBehaviour:
   movementSpeed: 0.05
   jumpForce: 4
   Anim: {fileID: 979131887}
+  damageController: {fileID: 0}
   canMove: 0
   audioPunchR: {fileID: 0}
   audioPunchL: {fileID: 0}
   audioKick: {fileID: 0}
+  healthPower: 100
 --- !u!54 &550912878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1703,6 +1734,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579682246}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &620464434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4332706925441422008, guid: 24f81a74877dca3428e28957075f4f52,
+    type: 3}
+  m_PrefabInstance: {fileID: 936660659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &620464436
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620464434}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &634050374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,6 +2791,22 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1404286416}
+    - targetCorrespondingSourceObject: {fileID: -6170625038081293824, guid: 24f81a74877dca3428e28957075f4f52,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1454474604}
+    - targetCorrespondingSourceObject: {fileID: -4332706925441422008, guid: 24f81a74877dca3428e28957075f4f52,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 620464436}
+    - targetCorrespondingSourceObject: {fileID: 3948933247560734027, guid: 24f81a74877dca3428e28957075f4f52,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1688331660}
+    - targetCorrespondingSourceObject: {fileID: -290750445479886849, guid: 24f81a74877dca3428e28957075f4f52,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 369298623}
   m_SourcePrefab: {fileID: 100100000, guid: 24f81a74877dca3428e28957075f4f52, type: 3}
 --- !u!4 &936660660 stripped
 Transform:
@@ -3230,6 +3306,7 @@ GameObject:
   - component: {fileID: 1108551584}
   - component: {fileID: 1108551583}
   - component: {fileID: 1108551582}
+  - component: {fileID: 1108551589}
   - component: {fileID: 1108551588}
   m_Layer: 0
   m_Name: Boxer 1
@@ -3253,10 +3330,12 @@ MonoBehaviour:
   movementSpeed: 0.05
   jumpForce: 4
   Anim: {fileID: 1404286415}
+  damageController: {fileID: 1108551589}
   canMove: 1
   audioPunchR: {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
   audioPunchL: {fileID: 8300000, guid: 01c97b38dbbdfb947aff7c91fff1efbe, type: 3}
   audioKick: {fileID: 8300000, guid: 7d12b8ffc45a795419fd6cbe363addd4, type: 3}
+  healthPower: 100
 --- !u!54 &1108551583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3469,6 +3548,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1108551589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108551581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: befc01e253de6574c8e8d2b365d694ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kickPower: 20
+  punchPower: 10
 --- !u!1 &1188188838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4508,6 +4601,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453580454}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1454474602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6170625038081293824, guid: 24f81a74877dca3428e28957075f4f52,
+    type: 3}
+  m_PrefabInstance: {fileID: 936660659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1454474604
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454474602}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1471954199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,6 +5411,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685450137}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1688331658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3948933247560734027, guid: 24f81a74877dca3428e28957075f4f52,
+    type: 3}
+  m_PrefabInstance: {fileID: 936660659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1688331660
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688331658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1727958534
 GameObject:
   m_ObjectHideFlags: 0
