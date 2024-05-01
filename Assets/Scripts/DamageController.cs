@@ -38,12 +38,14 @@ public class DamageController : MonoBehaviour
                     Debug.Log("Punch fait");
                     other.GetComponent<PlayerControllerV2>().healthPower -= punchPower;
                     other.GetComponent<PlayerControllerV2>().IsHit(lastAttack, lastAttackSide);
+                    other.GetComponent<PlayerControllerV2>().SetHealthPowerText();
                     SetCanDamage(false);
                     break;
                 case AttackType.Kick:
                     Debug.Log("Kick fait");
                     other.GetComponent<PlayerControllerV2>().healthPower -= kickPower;
                     other.GetComponent<PlayerControllerV2>().IsHit(lastAttack, lastAttackSide);
+                    other.GetComponent<PlayerControllerV2>().SetHealthPowerText();
                     SetCanDamage(false);
                     break;
                 default:
@@ -56,6 +58,7 @@ public class DamageController : MonoBehaviour
             if (other.GetComponent<PlayerControllerV2>().healthPower <= 0)
             {
                 other.GetComponent<PlayerControllerV2>().IsKnockedDown();
+                GetComponent<PlayerControllerV2>().SetGameStateToFinish();
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerControllerV2 : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class PlayerControllerV2 : MonoBehaviour
     public AudioClip audioKick = null;
     public AudioClip audioHit = null;
     public int healthPower = 100;
-    private int previousHealth;
+    public TextMeshProUGUI healthPowerText;
+    public GameObject winTextObject;
 
+    private int previousHealth;
     private Rigidbody playerRb;
     private bool isOnGround = true;
     private AudioSource boxerAudioSource;
@@ -26,17 +29,22 @@ public class PlayerControllerV2 : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         boxerAudioSource = GetComponent<AudioSource>();
         previousHealth = healthPower;
+        winTextObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (canMove) // Boxer bleu mobile
         {
             Punch();
             Kick();
             Move();
+        } else
+        {
+            SetHealthPowerText();
         }
+
         if (previousHealth != healthPower)
         {
             // Si la santé précédente est supérieure à la santé actuelle, cela signifie que le joueur a perdu des points de vie
@@ -159,5 +167,15 @@ public class PlayerControllerV2 : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isOnGround = true;
+    }
+
+    public void SetHealthPowerText()
+    {
+        healthPowerText.text = "Ennemi HP : " + healthPower.ToString();
+    }
+
+    public void SetGameStateToFinish()
+    {
+        winTextObject.SetActive(true);
     }
 }
