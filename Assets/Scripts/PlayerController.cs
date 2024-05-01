@@ -8,14 +8,19 @@ public class PlayerControllerV2 : MonoBehaviour
     public float jumpForce;
     public Animator Anim;
     public bool canMove;
+    public AudioClip audioPunchR = null;
+    public AudioClip audioPunchL = null;
+    public AudioClip audioKick = null;
 
     private Rigidbody playerRb;
     private bool isOnGround = true;
+    private AudioSource boxerAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        boxerAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,10 +39,12 @@ public class PlayerControllerV2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Anim.Play("Punch1_R");
+            boxerAudioSource.PlayOneShot(audioPunchR);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Anim.Play("Punch1_L");
+            boxerAudioSource.PlayOneShot(audioPunchL);
         }
     }
 
@@ -46,10 +53,12 @@ public class PlayerControllerV2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Anim.Play("Kick1_R");
+            boxerAudioSource.PlayOneShot(audioKick);
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Anim.Play("Kick1_L");
+            boxerAudioSource.PlayOneShot(audioKick);
         }
     }
 
