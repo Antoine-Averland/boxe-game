@@ -11,6 +11,7 @@ public class DamageController : MonoBehaviour
 
     private AttackType lastAttack = AttackType.None;
     private AttackSide lastAttackSide = AttackSide.None;
+    private bool canDamage = true;
 
     public void SetLastAttack(AttackType attackType)
     {
@@ -22,9 +23,14 @@ public class DamageController : MonoBehaviour
         lastAttackSide = attackSide;
     }
 
+    public void SetCanDamage(bool state)
+    {
+        canDamage = state;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "BoxerBlueSide")
+        if (other.tag == "BoxerBlueSide" && canDamage)
         {
             switch (lastAttack)
             {
@@ -32,11 +38,13 @@ public class DamageController : MonoBehaviour
                     Debug.Log("Punch fait");
                     other.GetComponent<PlayerControllerV2>().healthPower -= punchPower;
                     other.GetComponent<PlayerControllerV2>().IsHit(lastAttack, lastAttackSide);
+                    SetCanDamage(false);
                     break;
                 case AttackType.Kick:
                     Debug.Log("Kick fait");
                     other.GetComponent<PlayerControllerV2>().healthPower -= kickPower;
                     other.GetComponent<PlayerControllerV2>().IsHit(lastAttack, lastAttackSide);
+                    SetCanDamage(false);
                     break;
                 default:
                     break;

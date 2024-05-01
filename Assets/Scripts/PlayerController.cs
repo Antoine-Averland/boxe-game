@@ -16,8 +16,6 @@ public class PlayerControllerV2 : MonoBehaviour
     public int healthPower = 100;
     private int previousHealth;
 
-
-
     private Rigidbody playerRb;
     private bool isOnGround = true;
     private AudioSource boxerAudioSource;
