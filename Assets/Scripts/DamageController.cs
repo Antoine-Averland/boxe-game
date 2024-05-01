@@ -52,6 +52,11 @@ public class DamageController : MonoBehaviour
             
             Debug.Log("Collision sur boxerblueside");
             Debug.Log(other.GetComponent<PlayerControllerV2>().healthPower);
+
+            if (other.GetComponent<PlayerControllerV2>().healthPower <= 0)
+            {
+                other.GetComponent<PlayerControllerV2>().IsKnockedDown();
+            }
         }
     }
 }

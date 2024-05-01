@@ -150,6 +150,11 @@ public class PlayerControllerV2 : MonoBehaviour
         
     }
 
+    public void IsKnockedDown()
+    {
+        Anim.Play("FallingDown1");
+    }
+
     // When boxer make a collision 
     private void OnCollisionEnter(Collision collision)
     {
