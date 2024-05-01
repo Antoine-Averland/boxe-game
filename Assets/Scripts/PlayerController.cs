@@ -7,10 +7,14 @@ public class PlayerControllerV2 : MonoBehaviour
     public float movementSpeed;
     public float jumpForce;
     public Animator Anim;
+    public DamageController damageController;
     public bool canMove;
     public AudioClip audioPunchR = null;
     public AudioClip audioPunchL = null;
     public AudioClip audioKick = null;
+    public int healthPower = 100;
+
+
 
     private Rigidbody playerRb;
     private bool isOnGround = true;
@@ -40,11 +44,13 @@ public class PlayerControllerV2 : MonoBehaviour
         {
             Anim.Play("Punch1_R");
             boxerAudioSource.PlayOneShot(audioPunchR);
+            damageController.SetLastAttack(DamageController.AttackType.Punch);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Anim.Play("Punch1_L");
             boxerAudioSource.PlayOneShot(audioPunchL);
+            damageController.SetLastAttack(DamageController.AttackType.Punch);
         }
     }
 
@@ -54,11 +60,13 @@ public class PlayerControllerV2 : MonoBehaviour
         {
             Anim.Play("Kick1_R");
             boxerAudioSource.PlayOneShot(audioKick);
+            damageController.SetLastAttack(DamageController.AttackType.Kick);
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Anim.Play("Kick1_L");
             boxerAudioSource.PlayOneShot(audioKick);
+            damageController.SetLastAttack(DamageController.AttackType.Kick);
         }
     }
 
@@ -100,19 +108,5 @@ public class PlayerControllerV2 : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isOnGround = true;
-
-        if (collision.gameObject.CompareTag("BoxerBlueSide"))
-        {
-            Debug.Log("Collision avec le boxer adverse !");
-            // Vous pouvez ajouter ici le code pour réagir à la collision avec le boxer adverse
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "BoxerBlueSide")
-        {
-            Debug.Log("Collision sur boxerblueside");
-        }
     }
 }
