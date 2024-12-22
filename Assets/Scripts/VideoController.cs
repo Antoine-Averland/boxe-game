@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Video;
+
+public class VideoControl : MonoBehaviour
+{
+    public VideoPlayer videoPlayer;
+    public GameObject[] objectsToDisable; // Objets à désactiver pendant la vidéo
+    public AudioSource gameAudio; // L'audio principal du jeu
+
+    void Start()
+    {
+        // Désactiver les éléments du jeu au début
+        foreach (GameObject obj in objectsToDisable)
+        {
+            obj.SetActive(false);
+        }
+
+        if (gameAudio != null)
+        {
+            gameAudio.Pause(); // Arrête la musique de fond
+        }
+
+        // Attacher l'événement pour détecter la fin de la vidéo
+        videoPlayer.loopPointReached += EndReached;
+    }
+
+    void EndReached(VideoPlayer vp)
+    {
+        // Réactiver les éléments du jeu à la fin de la vidéo
+        foreach (GameObject obj in objectsToDisable)
+        {
+            obj.SetActive(true);
+        }
+
+        if (gameAudio != null)
+        {
+            gameAudio.Play(); // Redémarre la musique de fond
+        }
+
+        // Désactiver la vidéo ou son GameObject
+        gameObject.SetActive(false);
+    }
+}
