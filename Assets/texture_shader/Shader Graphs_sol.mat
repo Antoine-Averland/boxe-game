@@ -72,7 +72,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _MainTiling: {r: 20, g: 20, b: 0, a: 0}
+    - _MainTiling: {r: 50, g: 50, b: 0, a: 0}
     - _RippleSpeed: {r: 0.4, g: 0, b: 0, a: 0}
     - _RippleTiling: {r: 200, g: 200, b: 0, a: 0}
     - _SmoothTiling: {r: 0.06, g: 0.06, b: 0, a: 0}
