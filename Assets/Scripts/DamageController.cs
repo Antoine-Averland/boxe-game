@@ -39,6 +39,7 @@ public class DamageController : MonoBehaviour
                     other.GetComponent<PlayerControllerV2>().healthPower -= punchPower;
                     other.GetComponent<PlayerControllerV2>().IsHit(lastAttack, lastAttackSide);
                     other.GetComponent<PlayerControllerV2>().SetHealthPowerText();
+                    other.GetComponent<PlayerControllerV2>().StartCoroutine(other.GetComponent<PlayerControllerV2>().BoostSpotlightIntensity(false));
                     SetCanDamage(false);
                     break;
                 case AttackType.Kick:
@@ -46,6 +47,7 @@ public class DamageController : MonoBehaviour
                     other.GetComponent<PlayerControllerV2>().healthPower -= kickPower;
                     other.GetComponent<PlayerControllerV2>().IsHit(lastAttack, lastAttackSide);
                     other.GetComponent<PlayerControllerV2>().SetHealthPowerText();
+                    other.GetComponent<PlayerControllerV2>().StartCoroutine(other.GetComponent<PlayerControllerV2>().BoostSpotlightIntensity(true));
                     SetCanDamage(false);
                     break;
                 default:

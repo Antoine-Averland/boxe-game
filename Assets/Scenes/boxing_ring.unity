@@ -4175,6 +4175,7 @@ MonoBehaviour:
   healthPower: 100
   healthPowerText: {fileID: 1238733660}
   winTextObject: {fileID: 739278657}
+  opponentAffiliatedSpotlight: {fileID: 2108314916}
 --- !u!54 &550912878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9448,6 +9449,7 @@ MonoBehaviour:
   healthPower: 100
   healthPowerText: {fileID: 142966135}
   winTextObject: {fileID: 739278657}
+  opponentAffiliatedSpotlight: {fileID: 1435802367}
 --- !u!54 &1108551583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12047,12 +12049,12 @@ MonoBehaviour:
   - {fileID: 1108551581}
   - {fileID: 550912876}
   announcementText: {fileID: 2116369381}
-  delayBetweenAnnouncements: 8
+  delayBetweenAnnouncements: 4
   spotlights:
   - {fileID: 2108314916}
   - {fileID: 1435802367}
   maxIntensity: 1500
-  fadeDuration: 4
+  fadeDuration: 8
 --- !u!4 &1479377853
 Transform:
   m_ObjectHideFlags: 0

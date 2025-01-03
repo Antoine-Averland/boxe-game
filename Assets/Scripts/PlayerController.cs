@@ -17,11 +17,15 @@ public class PlayerControllerV2 : MonoBehaviour
     public int healthPower = 100;
     public TextMeshProUGUI healthPowerText;
     public GameObject winTextObject;
+    public Light opponentAffiliatedSpotlight;
 
     private int previousHealth;
     private Rigidbody playerRb;
     private bool isOnGround = true;
     private AudioSource boxerAudioSource;
+    private float maxSpotlightIntensityForSmallHit = 1500f;
+    private float maxSpotlightIntensityForBigHit = 2500f;
+    private float spotlightFadeDuration = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +71,7 @@ public class PlayerControllerV2 : MonoBehaviour
             boxerAudioSource.PlayOneShot(audioPunchR);
             damageController.SetLastAttack(DamageController.AttackType.Punch);
             damageController.SetLastAttackSide(DamageController.AttackSide.Right);
+            //StartCoroutine(BoostSpotlightIntensity(false));
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -74,6 +79,7 @@ public class PlayerControllerV2 : MonoBehaviour
             boxerAudioSource.PlayOneShot(audioPunchL);
             damageController.SetLastAttack(DamageController.AttackType.Punch);
             damageController.SetLastAttackSide(DamageController.AttackSide.Left);
+            //StartCoroutine(BoostSpotlightIntensity(false));
         }
     }
 
@@ -85,6 +91,7 @@ public class PlayerControllerV2 : MonoBehaviour
             boxerAudioSource.PlayOneShot(audioKick);
             damageController.SetLastAttack(DamageController.AttackType.Kick);
             damageController.SetLastAttackSide(DamageController.AttackSide.Right);
+            //StartCoroutine(BoostSpotlightIntensity(true));
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -92,6 +99,7 @@ public class PlayerControllerV2 : MonoBehaviour
             boxerAudioSource.PlayOneShot(audioKick);
             damageController.SetLastAttack(DamageController.AttackType.Kick);
             damageController.SetLastAttackSide(DamageController.AttackSide.Left);
+            //StartCoroutine(BoostSpotlightIntensity(true));
         }
     }
 
@@ -177,5 +185,37 @@ public class PlayerControllerV2 : MonoBehaviour
     public void SetGameStateToFinish()
     {
         winTextObject.SetActive(true);
+    }
+
+
+    public IEnumerator BoostSpotlightIntensity(bool powerfulMove)
+    {
+        if (opponentAffiliatedSpotlight == null) yield break;
+
+        float targetIntensity = powerfulMove ? maxSpotlightIntensityForBigHit : maxSpotlightIntensityForSmallHit;
+
+        float initialIntensity = opponentAffiliatedSpotlight.intensity;
+        float elapsed = 0f;
+
+        while (elapsed < spotlightFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            opponentAffiliatedSpotlight.intensity = Mathf.Lerp(initialIntensity, targetIntensity, elapsed / spotlightFadeDuration);
+            yield return null;
+        }
+
+        opponentAffiliatedSpotlight.intensity = targetIntensity;
+
+        yield return new WaitForSeconds(0.4f);
+
+        elapsed = 0f;
+        while (elapsed < spotlightFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            opponentAffiliatedSpotlight.intensity = Mathf.Lerp(targetIntensity, initialIntensity, elapsed / spotlightFadeDuration);
+            yield return null;
+        }
+
+        opponentAffiliatedSpotlight.intensity = initialIntensity;
     }
 }

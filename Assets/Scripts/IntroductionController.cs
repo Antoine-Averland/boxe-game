@@ -9,11 +9,11 @@ public class IntroductionController : MonoBehaviour
     public GameObject[] cameras;
     public GameObject[] boxers;
     public TMP_Text announcementText;
-    public float delayBetweenAnnouncements = 8f;
+    public float delayBetweenAnnouncements = 4f;
 
     public Light[] spotlights;
     public float maxIntensity = 1500f;
-    public float fadeDuration = 8f;
+    public float fadeDuration = 4f;
 
     private int currentBoxerIndex = 0;
 
@@ -28,14 +28,13 @@ public class IntroductionController : MonoBehaviour
         foreach (GameObject boxer in boxers)
         {
             ActivateCamera(currentBoxerIndex);
-            announcementText.text = "Présentation : " + boxer.name;
+            announcementText.text = boxer.name;
 
             yield return StartCoroutine(FadeLightIntensity(spotlights[currentBoxerIndex], 0, maxIntensity, fadeDuration));
 
             yield return new WaitForSeconds(delayBetweenAnnouncements - fadeDuration * 2);
 
             yield return StartCoroutine(FadeLightIntensity(spotlights[currentBoxerIndex], maxIntensity, 500, fadeDuration));
-
 
             currentBoxerIndex++;
         }
