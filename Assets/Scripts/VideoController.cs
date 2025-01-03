@@ -8,6 +8,8 @@ public class VideoControl : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject[] objectsToDisable; // Objets à désactiver pendant la vidéo
     public AudioSource gameAudio; // L'audio principal du jeu
+    // Script présentation des boxeurs
+    public IntroductionController introductionController;
 
     void Start()
     {
@@ -38,7 +40,12 @@ public class VideoControl : MonoBehaviour
         {
             gameAudio.Play(); // Redémarre la musique de fond
         }
-
+        
+        if (introductionController != null)
+        {
+            introductionController.StartIntroduction();
+        }
+        
         // Désactiver la vidéo ou son GameObject
         gameObject.SetActive(false);
     }
