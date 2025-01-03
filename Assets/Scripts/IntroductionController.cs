@@ -9,7 +9,11 @@ public class IntroductionController : MonoBehaviour
     public GameObject[] cameras;
     public GameObject[] boxers;
     public TMP_Text announcementText;
-    public float delayBetweenAnnouncements = 3f;
+    public float delayBetweenAnnouncements = 8f;
+
+    public Light[] spotlights;
+    public float maxIntensity = 1500f;
+    public float fadeDuration = 8f;
 
     private int currentBoxerIndex = 0;
 
@@ -25,7 +29,14 @@ public class IntroductionController : MonoBehaviour
         {
             ActivateCamera(currentBoxerIndex);
             announcementText.text = "Présentation : " + boxer.name;
-            yield return new WaitForSeconds(delayBetweenAnnouncements);
+
+            yield return StartCoroutine(FadeLightIntensity(spotlights[currentBoxerIndex], 0, maxIntensity, fadeDuration));
+
+            yield return new WaitForSeconds(delayBetweenAnnouncements - fadeDuration * 2);
+
+            yield return StartCoroutine(FadeLightIntensity(spotlights[currentBoxerIndex], maxIntensity, 500, fadeDuration));
+
+
             currentBoxerIndex++;
         }
 
@@ -49,5 +60,19 @@ public class IntroductionController : MonoBehaviour
         {
             cameras[i].SetActive(false);
         }
+    }
+
+    IEnumerator FadeLightIntensity(Light spotlight, float startIntensity, float endIntensity, float duration)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            spotlight.intensity = Mathf.Lerp(startIntensity, endIntensity, elapsed / duration);
+            yield return null;
+        }
+
+        spotlight.intensity = endIntensity;
     }
 }
