@@ -330,8 +330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836992111b7be3c469279632710df448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageController: {fileID: 550912883}
   attackType: 1
   attackSide: 1
+  handNode: 4
 --- !u!1 &20017830
 GameObject:
   m_ObjectHideFlags: 0
@@ -12636,8 +12638,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836992111b7be3c469279632710df448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageController: {fileID: 550912883}
   attackType: 1
   attackSide: 2
+  handNode: 5
 --- !u!1 &1007050918
 GameObject:
   m_ObjectHideFlags: 0
