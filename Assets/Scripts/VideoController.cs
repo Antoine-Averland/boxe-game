@@ -8,8 +8,9 @@ public class VideoControl : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject[] objectsToDisable; // Objets à désactiver pendant la vidéo
     public AudioSource gameAudio; // L'audio principal du jeu
+    public GameObject videoScreen; // le Quad ou Plane devant l'utilisateur
     // Script présentation des boxeurs
-    public IntroductionController introductionController;
+    //public IntroductionController introductionController;
 
     void Start()
     {
@@ -23,9 +24,13 @@ public class VideoControl : MonoBehaviour
         {
             gameAudio.Pause(); // Arrête la musique de fond
         }
-
+        if (videoScreen != null)
+        {
+            videoScreen.SetActive(true);
+        }
         // Attacher l'événement pour détecter la fin de la vidéo
         videoPlayer.loopPointReached += EndReached;
+        videoPlayer.Play();
     }
 
     void EndReached(VideoPlayer vp)
@@ -41,11 +46,15 @@ public class VideoControl : MonoBehaviour
             gameAudio.Play(); // Redémarre la musique de fond
         }
         
-        if (introductionController != null)
+        //if (introductionController != null)
+        //{
+        //    introductionController.StartIntroduction();
+        //}
+        if (videoScreen != null)
         {
-            introductionController.StartIntroduction();
+            videoScreen.SetActive(false);
         }
-        
+
         // Désactiver la vidéo ou son GameObject
         gameObject.SetActive(false);
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class AlignXROriginToRingFloor : MonoBehaviour
 {
@@ -22,8 +23,11 @@ public class AlignXROriginToRingFloor : MonoBehaviour
 
         // Calculer la différence entre la position actuelle de la tête et le ring_floor
         Vector3 offset = ringFloor.position - cameraTransform.position;
+        print(offset);
+        Console.WriteLine(offset);
 
         // Déplacer le XR Origin pour que la tête arrive sur le ring_floor
-        xrOrigin.position += new Vector3(offset.x, offset.y, offset.z);
+        xrOrigin.position += new Vector3(300, 300, 200);
+
     }
 }
