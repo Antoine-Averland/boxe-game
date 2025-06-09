@@ -6322,7 +6322,7 @@ MonoBehaviour:
   movementSpeed: 0.05
   jumpForce: 4
   Anim: {fileID: 979131887}
-  damageController: {fileID: 0}
+  damageController: {fileID: 550912883}
   canMove: 0
   audioPunchR: {fileID: 0}
   audioPunchL: {fileID: 0}
@@ -11581,7 +11581,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 927643895}
   objectsToDisable:
-  - {fileID: 1108551581}
   - {fileID: 550912876}
   - {fileID: 823517559}
   - {fileID: 2106645343}
@@ -13738,7 +13737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054730754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5b372f39d41e4748bf81ef5913297b3, type: 3}
   m_Name: 
@@ -21314,7 +21313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1794356202
 Transform:
   m_ObjectHideFlags: 0
@@ -25426,7 +25425,6 @@ GameObject:
   - component: {fileID: 2137372712}
   - component: {fileID: 2137372711}
   - component: {fileID: 2137372714}
-  - component: {fileID: 2137372715}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -25661,22 +25659,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &2137372715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137372709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d609493dece108d4898cad3ece97cfa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 927643895}
-  objectsToDisable: []
-  gameAudio: {fileID: 1397018376}
-  videoScreen: {fileID: 996733182}
 --- !u!1 &2144075549
 GameObject:
   m_ObjectHideFlags: 0
