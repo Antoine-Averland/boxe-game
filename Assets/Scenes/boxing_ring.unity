@@ -1125,6 +1125,37 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 936660659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &97074710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97074711}
+  m_Layer: 0
+  m_Name: RingMin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &97074711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97074710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.56, y: 3.84, z: 17.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142966133
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,6 +6331,7 @@ GameObject:
   - component: {fileID: 550912878}
   - component: {fileID: 550912877}
   - component: {fileID: 550912883}
+  - component: {fileID: 550912884}
   m_Layer: 0
   m_Name: Boxer 2
   m_TagString: BoxerBlueSide
@@ -6323,7 +6355,7 @@ MonoBehaviour:
   jumpForce: 4
   Anim: {fileID: 979131887}
   damageController: {fileID: 550912883}
-  canMove: 0
+  canMove: 1
   audioPunchR: {fileID: 0}
   audioPunchL: {fileID: 0}
   audioKick: {fileID: 0}
@@ -6462,6 +6494,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kickPower: 20
   punchPower: 10
+--- !u!114 &550912884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550912876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded465bae3ac8944c97b0adde4a8415b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movePoints:
+  - {fileID: 97074711}
+  - {fileID: 1602084569}
+  moveSpeed: 1.5
+  moveInterval: 3
+  controller: {fileID: 550912877}
 --- !u!1 &579682246
 GameObject:
   m_ObjectHideFlags: 0
@@ -19630,6 +19680,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1742504831}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1602084568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602084569}
+  m_Layer: 0
+  m_Name: RingMax
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1602084569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602084568}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.72, y: 4.22, z: 18.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641121611
 GameObject:
   m_ObjectHideFlags: 0
@@ -26020,3 +26101,5 @@ SceneRoots:
   - {fileID: 1479377853}
   - {fileID: 1932783358}
   - {fileID: 996733186}
+  - {fileID: 97074711}
+  - {fileID: 1602084569}
