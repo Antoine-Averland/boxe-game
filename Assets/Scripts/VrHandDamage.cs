@@ -32,13 +32,13 @@ public class VRHandDamage : MonoBehaviour
         {
             punchCount++;
 
-            // Définir les infos d’attaque
+            // D?finir les infos d?attaque
             damageController.SetLastAttack(attackType);
             damageController.SetLastAttackSide(attackSide);
             damageController.SetCanDamage(true);
 
-            // Déclencher vibration
-            TriggerHapticFeedback(0.8f, 0.5f); // amplitude (0-1), durée en secondes
+            // D?clencher vibration
+            TriggerHapticFeedback(0.8f, 0.5f); // amplitude (0-1), dur?e en secondes
 
             PlayImpactSound();
 
