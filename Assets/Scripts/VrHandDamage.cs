@@ -5,7 +5,8 @@ using UnityEngine.XR;
 
 public class VRHandDamage : MonoBehaviour
 {
-    public DamageController damageController;
+    public int kickPower = 20;
+    public int punchPower = 10;
     public DamageController.AttackType attackType = DamageController.AttackType.Punch;
     public DamageController.AttackSide attackSide = DamageController.AttackSide.Right;
     public XRNode handNode = XRNode.RightHand;
@@ -16,6 +17,8 @@ public class VRHandDamage : MonoBehaviour
 
     private AudioSource audioSource;
     private int punchCount = 0;
+    private bool canDamage = true;
+    private float damageCooldown = 1.5f;
 
     private void Start()
     {
@@ -28,17 +31,21 @@ public class VRHandDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BoxerBlueSide"))
+        if (other.CompareTag("BoxerBlueSide") && canDamage)
         {
             punchCount++;
 
-            // D?finir les infos d?attaque
-            damageController.SetLastAttack(attackType);
-            damageController.SetLastAttackSide(attackSide);
-            damageController.SetCanDamage(true);
+            PlayerControllerV2 player = other.GetComponent<PlayerControllerV2>();
+            if (player == null) return;
 
-            // D?clencher vibration
-            TriggerHapticFeedback(0.8f, 0.5f); // amplitude (0-1), dur?e en secondes
+            int damage = attackType == DamageController.AttackType.Kick ? kickPower : punchPower;
+            player.healthPower -= damage;
+
+            player.IsHit(attackType, attackSide);
+            player.SetHealthPowerText();
+            player.StartCoroutine(player.BoostSpotlightIntensity(attackType == DamageController.AttackType.Kick));
+
+            TriggerHapticFeedback(0.8f, 0.5f); // amplitude, durée
 
             PlayImpactSound();
 
@@ -47,6 +54,15 @@ public class VRHandDamage : MonoBehaviour
 
             if (punchCount == 3 && thirdPunchSound != null)
                 audioSource.PlayOneShot(thirdPunchSound);
+
+            canDamage = false;
+            StartCoroutine(ResetDamageCooldown());
+
+            if (player.healthPower <= 0)
+            {
+                player.IsKnockedDown();
+                GetComponent<PlayerControllerV2>()?.SetGameStateToFinish();
+            }
         }
     }
 
@@ -67,5 +83,15 @@ public class VRHandDamage : MonoBehaviour
             audioSource.PlayOneShot(punchSound);
         }
     }
-}
 
+    public void SetCanDamage(bool state)
+    {
+        canDamage = state;
+    }
+
+    private IEnumerator ResetDamageCooldown()
+    {
+        yield return new WaitForSeconds(damageCooldown);
+        canDamage = true;
+    }
+}
