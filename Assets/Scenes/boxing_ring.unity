@@ -330,7 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836992111b7be3c469279632710df448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageController: {fileID: 550912883}
+  kickPower: 20
+  punchPower: 10
   attackType: 1
   attackSide: 1
   handNode: 4
@@ -1200,7 +1201,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142966133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -6339,7 +6340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550912876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9162c0a1367047641aeb512217795e30, type: 3}
   m_Name: 
@@ -8768,7 +8769,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739278657}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -11661,7 +11662,7 @@ VideoPlayer:
   m_TargetTexture: {fileID: 0}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 996733184}
-  m_TargetMaterialProperty: <noninit>
+  m_TargetMaterialProperty: _MainTex
   m_RenderMode: 3
   m_AspectRatio: 2
   m_DataSource: 0
@@ -12878,7 +12879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836992111b7be3c469279632710df448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageController: {fileID: 550912883}
+  kickPower: 20
+  punchPower: 10
   attackType: 1
   attackSide: 2
   handNode: 5
@@ -15496,7 +15498,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238733658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -25354,7 +25356,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116369380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
